@@ -11,7 +11,11 @@ import GameplayKit
 
 class GameScene: SKScene {
     
+    let cardGenerator: randomCardGenerator = randomCardGenerator()
+    let firstCardXSpawn = -250.00, cardYSpawnFixed = -355.00
+    var nextCardOffset = 0.00
     var deck: SKSpriteNode = SKSpriteNode()
+    var playerCards: SKSpriteNode = SKSpriteNode()
     
     override func didMove(to view: SKView) {
         
@@ -20,12 +24,11 @@ class GameScene: SKScene {
     
     func touchDown(atPoint pos : CGPoint) {
         
-        if pos.y < 100
-        {
-            let someCard = SKSpriteNode(imageNamed: "cardSpadesA.png")
-            someCard.position = CGPoint(x: pos.x, y: pos.y)
-            self.addChild(someCard)
-        }
+        var newCard = cardGenerator.generateCard()
+        newCard.position = CGPoint(x: firstCardXSpawn + nextCardOffset, y: cardYSpawnFixed) //Make cards overlap correctly
+        nextCardOffset += 75.00
+        
+        self.addChild(newCard)
     }
     
     func touchMoved(toPoint pos : CGPoint) {

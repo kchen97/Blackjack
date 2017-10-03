@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8E9252E61F82FDF100991683 /* randomCardGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9252E51F82FDF100991683 /* randomCardGenerator.swift */; };
 		8EA18D921F820B6100069D64 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA18D911F820B6100069D64 /* AppDelegate.swift */; };
 		8EA18D941F820B6200069D64 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8EA18D931F820B6200069D64 /* GameScene.sks */; };
 		8EA18D961F820B6200069D64 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8EA18D951F820B6200069D64 /* Actions.sks */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8E9252E51F82FDF100991683 /* randomCardGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = randomCardGenerator.swift; path = ../randomCardGenerator.swift; sourceTree = "<group>"; };
 		8EA18D8E1F820B6100069D64 /* Blackjack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blackjack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EA18D911F820B6100069D64 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8EA18D931F820B6200069D64 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 				8EA18D931F820B6200069D64 /* GameScene.sks */,
 				8EA18D951F820B6200069D64 /* Actions.sks */,
 				8EA18D971F820B6200069D64 /* GameScene.swift */,
+				8E9252E51F82FDF100991683 /* randomCardGenerator.swift */,
 				8EA18D991F820B6200069D64 /* GameViewController.swift */,
 				8EA18D9B1F820B6200069D64 /* Main.storyboard */,
 				8EA18D9E1F820B6200069D64 /* Assets.xcassets */,
@@ -272,6 +275,7 @@
 			files = (
 				8EA18D981F820B6200069D64 /* GameScene.swift in Sources */,
 				8EA18D9A1F820B6200069D64 /* GameViewController.swift in Sources */,
+				8E9252E61F82FDF100991683 /* randomCardGenerator.swift in Sources */,
 				8EA18D921F820B6100069D64 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -517,6 +521,7 @@
 				8EA18DBE1F820B6200069D64 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8EA18DBF1F820B6200069D64 /* Build configuration list for PBXNativeTarget "BlackjackTests" */ = {
 			isa = XCConfigurationList;
@@ -525,6 +530,7 @@
 				8EA18DC11F820B6200069D64 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8EA18DC21F820B6200069D64 /* Build configuration list for PBXNativeTarget "BlackjackUITests" */ = {
 			isa = XCConfigurationList;
@@ -533,6 +539,7 @@
 				8EA18DC41F820B6200069D64 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
