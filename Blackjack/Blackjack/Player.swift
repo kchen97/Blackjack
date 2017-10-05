@@ -15,21 +15,20 @@ class Player
     var score: Int
     var higherScore: Int
     var aceSeen: Bool
+    var keepHand: Bool
     
-    init()
-    {
+    init() {
         self.score = 0
         self.higherScore = 0
         self.aceSeen = false
+        self.keepHand = false
     }
     
-    func addCard(someCard: Card)
-    {
+    func addCard(someCard: Card) {
         self.hand.append(someCard)
         self.score += someCard.value
         
-        if(someCard.value == 1 && !aceSeen)
-        {
+        if(someCard.value == 1 && !aceSeen) {
             self.higherScore += 11
             return
         }
@@ -37,14 +36,18 @@ class Player
         self.higherScore += someCard.value
     }
     
-    func emptyHand(deck: Deck)
-    {
-        for card in hand
-        {
+    func emptyHand(deck: Deck) {
+        for card in hand {
             deck.listOfCards.append(card)
         }
         
         score = 0
         higherScore = 0
+        aceSeen = false
+        keepHand = false
+    }
+    
+    func getState() -> Bool {
+        return score <= 21 && higherScore != 21 && !keepHand
     }
 }

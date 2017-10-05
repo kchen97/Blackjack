@@ -12,8 +12,12 @@ import GameplayKit
 
 class GameScene: SKScene {
     
-    var deck: Deck = Deck()
     let firstCardXSpawn = -250.00, cardYSpawnFixed = -355.00
+    let swipeRightRec = UISwipeGestureRecognizer()
+    let swipeLeftRec = UISwipeGestureRecognizer()
+    let tapRec = UITapGestureRecognizer()
+    let scoreLabel = SKLabelNode(fontNamed: "Chalkduster")
+    var deck: Deck = Deck()
     var nextCardOffset = 0.00
     var player: Player = Player()
     
@@ -21,36 +25,45 @@ class GameScene: SKScene {
         
         deck.deckImage = SKSpriteNode(imageNamed: "cardBack_red3.png")
         self.addChild(deck.deckImage)
+        
+        swipeRightRec.addTarget(self, action: #selector(GameScene.swipedRight))
+        swipeLeftRec.addTarget(self, action: #selector(GameScene.reset))
+        tapRec.addTarget(self, action: #selector(GameScene.touchDown))
+        
+        swipeRightRec.direction = .right
+        swipeLeftRec.direction = .left
+        tapRec.numberOfTapsRequired = 2
+        
+        self.view!.addGestureRecognizer(swipeRightRec)
+        self.view!.addGestureRecognizer(swipeLeftRec)
+        self.view!.addGestureRecognizer(tapRec)
     }
     
-    func touchDown(atPoint pos : CGPoint) {
-        
-        var newCard = deck.generateCard()
-        newCard.image.position = CGPoint(x: firstCardXSpawn + nextCardOffset, y: cardYSpawnFixed)
-        player.addCard(someCard: newCard) //Add card to player's hand
-        
-        nextCardOffset += 75.00
-        self.addChild(newCard.image)
+    func touchDown() {
+        if(player.getState()) {
+            let newCard = deck.generateCard()
+            newCard.image.position = CGPoint(x: firstCardXSpawn + nextCardOffset, y: cardYSpawnFixed)
+            player.addCard(someCard: newCard) //Add card to player's hand
+            
+            nextCardOffset += 75.00
+            self.addChild(newCard.image)
+        }
     }
     
-    func reset()
-    {
-        player.emptyHand(deck: deck)
-        self.removeAllChildren()
-        self.addChild(deck.deckImage)
-        self.nextCardOffset = 0.00
+    func reset() {
+        if player.keepHand {
+            player.emptyHand(deck: deck)
+            self.removeAllChildren()
+            self.addChild(deck.deckImage)
+            self.nextCardOffset = 0.00
+        }
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
-        for t in touches { self.touchDown(atPoint: t.location(in: self)) }
+    func swipedRight() {
+        player.keepHand = true
     }
     
     override func update(_ currentTime: TimeInterval) {
-        if player.score >= 21 || player.higherScore == 21
-        {
-            print("Score: \(player.score), Higher Score: \(player.higherScore)")
-            reset()
-        }
+        
     }
 }
