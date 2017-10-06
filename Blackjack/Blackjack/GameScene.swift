@@ -33,8 +33,8 @@ class GameScene: SKScene {
         swipeRightRec.direction = .right // Initialize label and recognizer properties
         swipeLeftRec.direction = .left
         tapRec.numberOfTapsRequired = 2
-        scoreLabel.text = "Score: " + String(player.score)
-        scoreLabel.position = CGPoint(x: frame.maxX - 100.00, y: frame.minY)
+        scoreLabel.text = String(player.score)
+        scoreLabel.position = CGPoint(x: frame.midX, y: frame.minY)
         
         self.addChild(scoreLabel) // Add score label and all gesture recognizers
         self.view!.addGestureRecognizer(swipeRightRec)
@@ -54,7 +54,7 @@ class GameScene: SKScene {
     }
     
     func reset() {
-        if player.keepHand {
+        if player.keepHand || player.score > 21 { //Remove all nodes and add back default nodes
             player.emptyHand(deck: deck)
             self.removeAllChildren()
             self.addChild(deck.deckImage)
@@ -68,6 +68,6 @@ class GameScene: SKScene {
     }
     
     override func update(_ currentTime: TimeInterval) {
-        scoreLabel.text = "Score: " + String(player.score)
+        scoreLabel.text = String(player.score)
     }
 }

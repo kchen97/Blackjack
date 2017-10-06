@@ -30,10 +30,14 @@ class Player
         
         if(someCard.value == 1 && !aceSeen) {
             self.higherScore += 11
-            return
+        }
+        else {
+            self.higherScore += someCard.value
         }
         
-        self.higherScore += someCard.value
+        if higherScore == 21 {
+            self.score = higherScore
+        }
     }
     
     func emptyHand(deck: Deck) {
@@ -48,6 +52,6 @@ class Player
     }
     
     func getState() -> Bool {
-        return score <= 21 && higherScore != 21 && !keepHand
+        return score < 21 && !keepHand
     }
 }
