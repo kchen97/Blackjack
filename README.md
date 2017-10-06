@@ -1,10 +1,13 @@
 # Blackjack
 ## Completed
-1. Imported assets and initialized deck
-2. Created card generator
+* Imported assets and initialized deck
+* Created card generator
+* Point System
+* Fix overlap issue
+* UI for the game
+* Detect a winner and always display score
 
 ## Needs to be implemented
-1. Make a point system
-2. Actions
-3. Fix overlap issue
-4. More to come
+* Smooth card actions
+* Intro screen
+* More to come
