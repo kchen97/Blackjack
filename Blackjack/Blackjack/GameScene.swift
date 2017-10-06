@@ -23,17 +23,20 @@ class GameScene: SKScene {
     
     override func didMove(to view: SKView) {
         
-        deck.deckImage = SKSpriteNode(imageNamed: "cardBack_red3.png")
+        deck.deckImage = SKSpriteNode(imageNamed: "cardBack_red3.png") // Initialize deck
         self.addChild(deck.deckImage)
         
-        swipeRightRec.addTarget(self, action: #selector(GameScene.swipedRight))
+        swipeRightRec.addTarget(self, action: #selector(GameScene.swipedRight)) // Initialize gestures
         swipeLeftRec.addTarget(self, action: #selector(GameScene.reset))
         tapRec.addTarget(self, action: #selector(GameScene.touchDown))
         
-        swipeRightRec.direction = .right
+        swipeRightRec.direction = .right // Initialize label and recognizer properties
         swipeLeftRec.direction = .left
         tapRec.numberOfTapsRequired = 2
+        scoreLabel.text = "Score: " + String(player.score)
+        scoreLabel.position = CGPoint(x: frame.maxX - 100.00, y: frame.minY)
         
+        self.addChild(scoreLabel) // Add score label and all gesture recognizers
         self.view!.addGestureRecognizer(swipeRightRec)
         self.view!.addGestureRecognizer(swipeLeftRec)
         self.view!.addGestureRecognizer(tapRec)
@@ -55,6 +58,7 @@ class GameScene: SKScene {
             player.emptyHand(deck: deck)
             self.removeAllChildren()
             self.addChild(deck.deckImage)
+            self.addChild(scoreLabel)
             self.nextCardOffset = 0.00
         }
     }
@@ -64,6 +68,6 @@ class GameScene: SKScene {
     }
     
     override func update(_ currentTime: TimeInterval) {
-        
+        scoreLabel.text = "Score: " + String(player.score)
     }
 }
