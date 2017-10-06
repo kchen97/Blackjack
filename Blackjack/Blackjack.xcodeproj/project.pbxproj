@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8E07F0BF1F8470AB00CC2235 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E07F0BE1F8470AB00CC2235 /* Card.swift */; };
+		8E860EEC1F87F2D5009B3D2E /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E860EEB1F87F2D5009B3D2E /* IntroViewController.swift */; };
 		8E9252E81F837C6900991683 /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9252E71F837C6900991683 /* Deck.swift */; };
 		8EA18D921F820B6100069D64 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA18D911F820B6100069D64 /* AppDelegate.swift */; };
 		8EA18D941F820B6200069D64 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8EA18D931F820B6200069D64 /* GameScene.sks */; };
@@ -41,6 +42,7 @@
 
 /* Begin PBXFileReference section */
 		8E07F0BE1F8470AB00CC2235 /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		8E860EEB1F87F2D5009B3D2E /* IntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
 		8E9252E71F837C6900991683 /* Deck.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Deck.swift; sourceTree = "<group>"; };
 		8EA18D8E1F820B6100069D64 /* Blackjack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blackjack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EA18D911F820B6100069D64 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 				8EA18D951F820B6200069D64 /* Actions.sks */,
 				8EA18D971F820B6200069D64 /* GameScene.swift */,
 				8EA18D991F820B6200069D64 /* GameViewController.swift */,
+				8E860EEB1F87F2D5009B3D2E /* IntroViewController.swift */,
 				8E9252E71F837C6900991683 /* Deck.swift */,
 				8EE9E0681F869EA10022973B /* Player.swift */,
 				8E07F0BE1F8470AB00CC2235 /* Card.swift */,
@@ -281,6 +284,7 @@
 			files = (
 				8E9252E81F837C6900991683 /* Deck.swift in Sources */,
 				8EA18D981F820B6200069D64 /* GameScene.swift in Sources */,
+				8E860EEC1F87F2D5009B3D2E /* IntroViewController.swift in Sources */,
 				8EA18D9A1F820B6200069D64 /* GameViewController.swift in Sources */,
 				8E07F0BF1F8470AB00CC2235 /* Card.swift in Sources */,
 				8EE9E0691F869EA10022973B /* Player.swift in Sources */,

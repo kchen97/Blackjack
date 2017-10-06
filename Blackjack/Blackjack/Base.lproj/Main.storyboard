@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BV1-FR-VrT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="yFy-DA-DHa">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -22,9 +23,66 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
+                    <toolbarItems/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="852" y="188"/>
+        </scene>
+        <!--Intro View Controller-->
+        <scene sceneID="j98-Bx-c9n">
+            <objects>
+                <viewController id="yFy-DA-DHa" customClass="IntroViewController" customModule="Blackjack" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="tkI-4S-j2W"/>
+                        <viewControllerLayoutGuide type="bottom" id="fei-yV-q1C"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="DTV-C9-78M">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HTr-Ht-m8h">
+                                <rect key="frame" x="50" y="350" width="275" height="33"/>
+                                <state key="normal" title="Play"/>
+                                <connections>
+                                    <segue destination="BV1-FR-VrT" kind="show" identifier="enterGame" id="3Bf-FS-uGm"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pbb-Ql-xEC">
+                                <rect key="frame" x="50" y="120" width="275" height="184"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Welcome to Blackjack">
+                                        <attributes>
+                                            <font key="NSFont" size="24" name="Apple-Chancery"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="pbb-Ql-xEC" secondAttribute="trailing" constant="34" id="9yE-zG-5hB"/>
+                            <constraint firstItem="pbb-Ql-xEC" firstAttribute="leading" secondItem="DTV-C9-78M" secondAttribute="leadingMargin" constant="34" id="ENB-Iq-4sh"/>
+                            <constraint firstItem="HTr-Ht-m8h" firstAttribute="top" secondItem="pbb-Ql-xEC" secondAttribute="bottom" constant="140" id="Mt2-1C-WGX"/>
+                            <constraint firstItem="HTr-Ht-m8h" firstAttribute="top" secondItem="tkI-4S-j2W" secondAttribute="bottom" constant="330" id="XUA-Sf-ChI"/>
+                            <constraint firstItem="fei-yV-q1C" firstAttribute="top" secondItem="HTr-Ht-m8h" secondAttribute="bottom" constant="240" id="Ygy-eP-ngQ"/>
+                            <constraint firstItem="pbb-Ql-xEC" firstAttribute="top" secondItem="tkI-4S-j2W" secondAttribute="bottom" constant="100" id="ZHs-S2-Sj6"/>
+                            <constraint firstAttribute="trailing" secondItem="HTr-Ht-m8h" secondAttribute="trailing" constant="50" id="jfa-aM-hGC"/>
+                            <constraint firstItem="HTr-Ht-m8h" firstAttribute="leading" secondItem="DTV-C9-78M" secondAttribute="leading" constant="50" id="kO3-wY-eX7"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="playButton" destination="HTr-Ht-m8h" id="iU2-eD-fzv"/>
+                        <outlet property="welcomeLabel" destination="pbb-Ql-xEC" id="EtU-KG-QBw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gJh-oE-hJw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-26.399999999999999" y="187.55622188905548"/>
         </scene>
     </scenes>
 </document>
