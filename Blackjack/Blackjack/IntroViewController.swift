@@ -12,12 +12,13 @@ import os.log
 class IntroViewController: UIViewController {
 
     @IBOutlet weak var playButton: UIButton!
+    @IBOutlet weak var practiceButton: UIButton!
     @IBOutlet weak var welcomeLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -32,11 +33,9 @@ class IntroViewController: UIViewController {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        guard let button = sender as? UIButton, button == playButton else {
-            os_log("The play button was not pressed, cancelling", log: OSLog.default, type: .debug)
-            return
-        }
+        /*guard segue.destination is DealerGameViewController else {
+            fatalError("Invalid segue destination \(segue.destination)")
+        }*/
     }
-    
 
 }

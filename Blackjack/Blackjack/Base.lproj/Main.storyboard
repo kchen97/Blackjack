@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Game View Controller-->
+        <!--Dealer Game View Controller-->
         <scene sceneID="tXr-a1-R10">
             <objects>
-                <viewController id="BV1-FR-VrT" customClass="GameViewController" customModule="Blackjack" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BV1-FR-VrT" customClass="DealerGameViewController" customModule="Blackjack" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8aa-yV-Osq"/>
                         <viewControllerLayoutGuide type="bottom" id="qHh-Mt-9TT"/>
@@ -27,7 +27,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="852" y="188"/>
+            <point key="canvasLocation" x="1071" y="-131"/>
+        </scene>
+        <!--Practice Game View Controller-->
+        <scene sceneID="kWA-Tj-z6Q">
+            <objects>
+                <viewController id="rct-1T-Raq" customClass="PracticeGameViewController" customModule="Blackjack" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="A8f-Xv-w19"/>
+                        <viewControllerLayoutGuide type="bottom" id="iaT-En-NIa"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="vho-Jb-5zq" customClass="SKView">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e2C-X5-sml" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1118" y="611"/>
         </scene>
         <!--Intro View Controller-->
         <scene sceneID="j98-Bx-c9n">
@@ -41,13 +59,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HTr-Ht-m8h">
-                                <rect key="frame" x="50" y="350" width="275" height="33"/>
-                                <state key="normal" title="Play"/>
-                                <connections>
-                                    <segue destination="BV1-FR-VrT" kind="show" identifier="enterGame" id="3Bf-FS-uGm"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pbb-Ql-xEC">
                                 <rect key="frame" x="50" y="120" width="275" height="184"/>
                                 <attributedString key="attributedText">
@@ -60,23 +71,57 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9u2-va-TPc">
+                                <rect key="frame" x="50" y="393" width="275" height="81"/>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Practice">
+                                            <attributes>
+                                                <font key="NSFont" size="48" name=".SFNSText"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                                <connections>
+                                    <segue destination="rct-1T-Raq" kind="show" identifier="enterPractice" id="FTg-Mf-C38"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HTr-Ht-m8h">
+                                <rect key="frame" x="50" y="304" width="275" height="81"/>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Play Dealer">
+                                            <attributes>
+                                                <font key="NSFont" size="48" name=".SFNSText"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                                <connections>
+                                    <segue destination="BV1-FR-VrT" kind="show" identifier="enterGame" id="3Bf-FS-uGm"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="pbb-Ql-xEC" secondAttribute="trailing" constant="34" id="9yE-zG-5hB"/>
                             <constraint firstItem="pbb-Ql-xEC" firstAttribute="leading" secondItem="DTV-C9-78M" secondAttribute="leadingMargin" constant="34" id="ENB-Iq-4sh"/>
-                            <constraint firstItem="HTr-Ht-m8h" firstAttribute="top" secondItem="pbb-Ql-xEC" secondAttribute="bottom" constant="140" id="Mt2-1C-WGX"/>
+                            <constraint firstItem="fei-yV-q1C" firstAttribute="top" secondItem="9u2-va-TPc" secondAttribute="bottom" constant="160" id="Egy-RN-Xq9"/>
+                            <constraint firstItem="9u2-va-TPc" firstAttribute="leading" secondItem="HTr-Ht-m8h" secondAttribute="leading" id="VY6-r6-M50"/>
                             <constraint firstItem="HTr-Ht-m8h" firstAttribute="top" secondItem="tkI-4S-j2W" secondAttribute="bottom" constant="330" id="XUA-Sf-ChI"/>
                             <constraint firstItem="fei-yV-q1C" firstAttribute="top" secondItem="HTr-Ht-m8h" secondAttribute="bottom" constant="240" id="Ygy-eP-ngQ"/>
                             <constraint firstItem="pbb-Ql-xEC" firstAttribute="top" secondItem="tkI-4S-j2W" secondAttribute="bottom" constant="100" id="ZHs-S2-Sj6"/>
+                            <constraint firstItem="9u2-va-TPc" firstAttribute="top" secondItem="HTr-Ht-m8h" secondAttribute="bottom" id="iDY-Fq-LbC"/>
                             <constraint firstAttribute="trailing" secondItem="HTr-Ht-m8h" secondAttribute="trailing" constant="50" id="jfa-aM-hGC"/>
                             <constraint firstItem="HTr-Ht-m8h" firstAttribute="leading" secondItem="DTV-C9-78M" secondAttribute="leading" constant="50" id="kO3-wY-eX7"/>
+                            <constraint firstItem="9u2-va-TPc" firstAttribute="trailing" secondItem="HTr-Ht-m8h" secondAttribute="trailing" id="yMt-WP-7OZ"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="playButton" destination="HTr-Ht-m8h" id="iU2-eD-fzv"/>
+                        <outlet property="practiceButton" destination="9u2-va-TPc" id="Y6x-ou-10a"/>
                         <outlet property="welcomeLabel" destination="pbb-Ql-xEC" id="EtU-KG-QBw"/>
                     </connections>
                 </viewController>

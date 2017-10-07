@@ -17,9 +17,16 @@ class Deck
     
     init()
     {
-        var contents = try! FileManager.default.contentsOfDirectory(atPath: "/Users/kormanchen/Desktop/CS/Sprites/boardgamepack/PNG/Cards/deck")
+        let bundleURL = Bundle.main.bundleURL
+        let assetURL = bundleURL.appendingPathComponent("Card_Images.bundle")
+        let urls = try! FileManager.default.contentsOfDirectory(at: assetURL, includingPropertiesForKeys: [URLResourceKey.nameKey, URLResourceKey.isDirectoryKey], options: .skipsHiddenFiles)
+        var contents = [String]()
         
-        contents.remove(at: 0) // Remove .DS_Store w/ brute force for now
+        for url in urls
+        {
+            contents.append(url.lastPathComponent)
+        }
+        
         contents.sort()
         
         for cardValue in 0..<maxDeck
