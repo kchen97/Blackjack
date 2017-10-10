@@ -12,22 +12,22 @@ import GameplayKit
 
 class DealerGameScene: SKScene {
     
-    let firstCardXSpawn = -250.00, cardYSpawnFixed = -330.00
     let swipeRightRec = UISwipeGestureRecognizer()
     let swipeLeftRec = UISwipeGestureRecognizer()
     let tapRec = UITapGestureRecognizer()
-    let scoreLabel = SKLabelNode(fontNamed: "Chalkduster")
     var stateLabel = SKLabelNode(fontNamed: "Chalkduster")
-    var deck: Deck = Deck()
-    var nextCardOffset = 0.00
     var player: Player = Player()
     var dealer: Player = Player()
+    var game: Game = Game()
     
     override func didMove(to view: SKView) {
-        
-        deck.deckImage = SKSpriteNode(imageNamed: "cardBack_red3.png") // Initialize deck
-        deck.deckImage.position = CGPoint(x: frame.midX, y: frame.midY + 100)
-        self.addChild(deck.deckImage)
+
+        game.deck.deckImage.position = CGPoint(x: frame.midX, y: frame.midY + 100)
+        game.labelConfig(somePlayer: player, dealer: dealer)
+        let firstCards = game.dealFirstCards(somePlayer: player, dealer: dealer)
+        for node in firstCards {
+            addChild(node)
+        }
         
         swipeRightRec.addTarget(self, action: #selector(DealerGameScene.swipedRight)) // Initialize gestures
         swipeLeftRec.addTarget(self, action: #selector(DealerGameScene.reset))
@@ -36,12 +36,11 @@ class DealerGameScene: SKScene {
         swipeRightRec.direction = .right // Initialize label and recognizer properties
         swipeLeftRec.direction = .left
         tapRec.numberOfTapsRequired = 2
-        scoreLabel.text = String(player.score)
         stateLabel.text = String("Your Turn")
-        scoreLabel.position = CGPoint(x: frame.midX, y: frame.minY)
         stateLabel.position = CGPoint(x: frame.midX, y: frame.midY + 200)
         
-        self.addChild(scoreLabel) // Add labels and all gesture recognizers
+        self.addChild(player.scoreLabel) // Add labels and all gesture recognizers
+        self.addChild(dealer.scoreLabel)
         self.addChild(stateLabel)
         self.view!.addGestureRecognizer(swipeRightRec)
         self.view!.addGestureRecognizer(swipeLeftRec)
@@ -50,17 +49,12 @@ class DealerGameScene: SKScene {
     
     func touchDown() {
         if(player.getState()) {
-            addToHandAndView(aPlayer: player, yOffSet: -35.00)
+            addToHandAndView(aPlayer: player, yOffSet: game.yOffSetPlayer)
         }
     }
    
     func addToHandAndView(aPlayer: Player, yOffSet: Double) {
-        let newCard = deck.generateCard()
-        newCard.image.position = CGPoint(x: firstCardXSpawn + nextCardOffset, y: cardYSpawnFixed + yOffSet)
-        aPlayer.addCard(someCard: newCard) //Add card to player's hand
-        
-        nextCardOffset += 75.00
-        self.addChild(newCard.image)
+        addChild(game.deal(somePlayer: aPlayer, nextCardOffset: aPlayer.nextCardOffSet, yOffSet: yOffSet))
     }
     
     func dealerTurn(score: Int) {
@@ -72,33 +66,28 @@ class DealerGameScene: SKScene {
         }
         else {
             stateLabel.text = "Dealer Turn"
-            nextCardOffset = 0.00
-            while dealer.score < score {
-                addToHandAndView(aPlayer: dealer, yOffSet: 185.00)
+            while dealer.getScore() < score {
+                addToHandAndView(aPlayer: dealer, yOffSet: game.yOffSetDealer)
             }
             
-            if dealer.score < 21 && dealer.score > score {
-                stateLabel.text = "You Lose."
-            }
-            else if dealer.score == score {
-                stateLabel.text = "Tie."
-            }
-            else {
-                stateLabel.text = "You Win!"
-            }
+            stateLabel.text = game.computeWinner(playerScore: score, dealerScore: dealer.getScore())
         }
     }
     
     func reset() {
-        if player.keepHand || player.score >= 21 { //Remove all nodes and add back default nodes
+        if player.keepHand || player.getScore() >= 21 { //Remove all nodes and add back default nodes
             stateLabel.text = "Your Turn"
-            player.emptyHand(deck: deck)
-            dealer.emptyHand(deck: deck)
+            player.emptyHand(deck: game.deck)
+            dealer.emptyHand(deck: game.deck)
             self.removeAllChildren()
-            self.addChild(deck.deckImage)
-            self.addChild(scoreLabel)
+            self.addChild(player.scoreLabel)
+            self.addChild(dealer.scoreLabel)
             self.addChild(stateLabel)
-            self.nextCardOffset = 0.00
+            
+            let firstCards = game.dealFirstCards(somePlayer: player, dealer: dealer)
+            for node in firstCards {
+                addChild(node)
+            }
         }
     }
     
@@ -107,10 +96,11 @@ class DealerGameScene: SKScene {
     }
     
     override func update(_ currentTime: TimeInterval) {
-        scoreLabel.text = String(player.score)
+        player.scoreLabel.text = String(player.getScore())
+        dealer.scoreLabel.text = String(dealer.getScore())
         if !player.getState()
         {
-            dealerTurn(score: player.score)
+            dealerTurn(score: player.getScore())
         }
     }
 }

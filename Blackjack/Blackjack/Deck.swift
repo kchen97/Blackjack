@@ -31,7 +31,9 @@ class Deck
         
         for cardValue in 0..<maxDeck
         {
-            listOfCards.append(Card(cardValue: cardValue + 1, cardImage: SKSpriteNode(imageNamed: contents[cardValue])))
+            let node = SKSpriteNode(imageNamed: contents[cardValue])
+            node.name = String(contents[cardValue])
+            listOfCards.append(Card(cardValue: cardValue + 1, cardImage: node))
         }
         
     }

@@ -13,6 +13,7 @@
 		8E860EFA1F895CF6009B3D2E /* PracticeGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E860EF91F895CF6009B3D2E /* PracticeGameViewController.swift */; };
 		8E860EFD1F895D36009B3D2E /* PracticeGameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8E860EFB1F895D36009B3D2E /* PracticeGameScene.sks */; };
 		8E860EFE1F895D36009B3D2E /* PracticeGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E860EFC1F895D36009B3D2E /* PracticeGameScene.swift */; };
+		8E860FC21F8B5804009B3D2E /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E860FC11F8B5804009B3D2E /* Game.swift */; };
 		8E9252E81F837C6900991683 /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9252E71F837C6900991683 /* Deck.swift */; };
 		8EA18D921F820B6100069D64 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA18D911F820B6100069D64 /* AppDelegate.swift */; };
 		8EA18D941F820B6200069D64 /* DealerGameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8EA18D931F820B6200069D64 /* DealerGameScene.sks */; };
@@ -51,6 +52,7 @@
 		8E860EF91F895CF6009B3D2E /* PracticeGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PracticeGameViewController.swift; sourceTree = "<group>"; };
 		8E860EFB1F895D36009B3D2E /* PracticeGameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PracticeGameScene.sks; sourceTree = "<group>"; };
 		8E860EFC1F895D36009B3D2E /* PracticeGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PracticeGameScene.swift; sourceTree = "<group>"; };
+		8E860FC11F8B5804009B3D2E /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		8E9252E71F837C6900991683 /* Deck.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Deck.swift; sourceTree = "<group>"; };
 		8EA18D8E1F820B6100069D64 /* Blackjack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blackjack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EA18D911F820B6100069D64 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 				8E9252E71F837C6900991683 /* Deck.swift */,
 				8E07F0BE1F8470AB00CC2235 /* Card.swift */,
 				8EE9E0681F869EA10022973B /* Player.swift */,
+				8E860FC11F8B5804009B3D2E /* Game.swift */,
 				8EA18D971F820B6200069D64 /* DealerGameScene.swift */,
 				8E860EFC1F895D36009B3D2E /* PracticeGameScene.swift */,
 				8E860EEB1F87F2D5009B3D2E /* IntroViewController.swift */,
@@ -226,6 +229,7 @@
 				TargetAttributes = {
 					8EA18D8D1F820B6100069D64 = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 2J85MR725D;
 						ProvisioningStyle = Automatic;
 					};
 					8EA18DA71F820B6200069D64 = {
@@ -297,6 +301,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8E9252E81F837C6900991683 /* Deck.swift in Sources */,
+				8E860FC21F8B5804009B3D2E /* Game.swift in Sources */,
 				8EA18D981F820B6200069D64 /* DealerGameScene.swift in Sources */,
 				8E860EEC1F87F2D5009B3D2E /* IntroViewController.swift in Sources */,
 				8EA18D9A1F820B6200069D64 /* DealerGameViewController.swift in Sources */,
@@ -456,7 +461,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 2J85MR725D;
 				INFOPLIST_FILE = Blackjack/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = KormanChen.Blackjack;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -468,7 +475,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 2J85MR725D;
 				INFOPLIST_FILE = Blackjack/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = KormanChen.Blackjack;
 				PRODUCT_NAME = "$(TARGET_NAME)";
